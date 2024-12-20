@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #f92524;
+  --primary-color-dark: #e91a1a;
+  --secondary-color: #faf9fe;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --white: #ffffff;
+  --max-width: 1500px;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+}
+
+.main__container .logo img{
+    max-height: 110px;
+}
+
+.register__container h1 span {
+    color: var(--primary-color);
+}
+
+.register__container h1 {
+    padding: 0;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+
+.register__container p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+
+.register__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.register__container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form__group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.labelIcon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    color: black;  
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.labelIcon i {
+    transition: color 0.3s ease;
+}
+
+
+.labelIcon:hover i {
+    color: red;  
+    transform: scale(1.30);
+}
+
+.register__container input {
+    padding: 1rem 1.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    background-color: transparent;
+    transition: box-shadow 0.3s ease;
+}
+
+
+.register__container input:focus {
+    box-shadow: 0 0 5px rgba(10, 10, 14, 0.5); 
+  }
+  
+
+.register__container h1 {
+    font-weight: 600;
+}
+
+.register__container button.btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 32px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register__container button.btn:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.register__container  .quote {
+    font-style: italic;
+    text-align: center;
+}
+
+.register__container p a {
+    font-weight: 600;
+    color: black;
+}
+
+.register__container a:visited,
+.register__container a:active {
+  color: black; 
+}
+
