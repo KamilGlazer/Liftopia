@@ -68,7 +68,7 @@ body {
 
 .form__group {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .labelIcon {
@@ -78,7 +78,7 @@ body {
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    color: black;  
+    color: black;
     font-size: 16px;
     transition: transform 0.3s ease;
 }
@@ -146,3 +146,15 @@ body {
   color: black; 
 }
 
+input.no-valid {
+    border: 2px solid red;
+}
+
+.form__group .error-message {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    margin: 0;
+}

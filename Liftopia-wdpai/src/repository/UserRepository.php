@@ -26,4 +26,24 @@ class UserRepository extends Repository
             $user['date_of_birth']
         );
     }
+
+    public function save(User $user) : bool {
+        try {
+            $statement = $this->database->connect()->prepare("
+            INSERT INTO public.users (email, password, name, surname, date_of_birth)
+            VALUES (:email, :password, :name, :surname, :date_of_birth)
+        ");
+
+            $statement->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
+            $statement->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
+            $statement->bindValue(':name', $user->getName(), PDO::PARAM_STR);
+            $statement->bindValue(':surname', $user->getSurname(), PDO::PARAM_STR);
+            $statement->bindValue(':date_of_birth', $user->getDateOfBirth(), PDO::PARAM_STR);
+
+            return $statement->execute();
+        } catch (PDOException $e) {
+            error_log("Błąd podczas zapisywania użytkownika: " . $e->getMessage());
+            return false;
+        }
+    }
 }

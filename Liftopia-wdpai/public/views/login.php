@@ -9,6 +9,10 @@
       rel="stylesheet"
     />
   <link rel="stylesheet" href="/public/css/login.css" />
+    <style>
+        .messages { color: red; text-align: center; margin-bottom: 1rem; }
+        .login__container .success-message {color : green; margin-top: 1rem;}
+    </style>
 </head>
 <body>
 
@@ -20,6 +24,16 @@
       <div class="login__container">
         <h1><span>LIFT</span>OPIA LOGIN</h1>
         <p class="quote">Every rep counts. Every login matters.</p>
+
+          <?php
+          session_start();
+          if (isset($_SESSION['registration_success'])): ?>
+              <div class="success-message">
+                  <i class="ri-check-line"></i> <?= $_SESSION['registration_success'] ?>
+              </div>
+              <?php unset($_SESSION['registration_success']); ?>
+          <?php endif; ?>
+
         <form action="/login" method="POST">
             <div class="messages" >
                 <?php if(isset($messages)){
@@ -45,6 +59,6 @@
     </div>
   </section>
   
-  <script src="/public/logic/login.js"></script>
+  <script src="/public/script/login.js"></script>
 </body>
 </html>

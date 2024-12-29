@@ -426,14 +426,14 @@
             <a href="#">Careers</a>
           </div>
         </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <div class="footer__links">
-            <a href="#">Contact Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
+          <div class="footer__col">
+              <h4>Contact</h4>
+              <div class="footer__links">
+                  <a href="#">Contact Us</a>
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms & Conditions</a>
+              </div>
           </div>
-        </div>
       </div>
       <div class="footer__bar">
         Copyright © 2024 All rights reserved.
@@ -442,7 +442,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/public/logic/main.js"></script>
+    <script src="/public/script/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         var typed = new Typed(".auto-type", {
