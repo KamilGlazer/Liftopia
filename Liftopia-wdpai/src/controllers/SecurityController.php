@@ -4,12 +4,15 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../security/AuthMiddleware.php';
 
 
 class SecurityController extends AppController
 {
     public function login()
     {
+
+        session_start();
 
         $userRepository = new UserRepository();
 
@@ -18,19 +21,24 @@ class SecurityController extends AppController
 
         $user = $userRepository->getUserByEmail($email);
 
-        if(!$user || $user->getPassword() !== $password){
+        if(!$user || !password_verify($password,$user->getPassword())){
             return $this->render('login',['messages' => ['Invalid email or password']]);
         }
+
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['user_email'] = $user->getEmail();
 
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: $url/base");
+        exit();
     }
 
     public function register()
     {
         $userRepository = new UserRepository();
-        $user = new User($_POST["email"], $_POST["password"], $_POST["name"], $_POST["surname"], $_POST["dateOfBirth"]);
+        $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $user = new User($_POST["email"],$hashedPassword , $_POST["name"], $_POST["surname"], $_POST["dateOfBirth"]);
 
         $user2 = $userRepository->getUserByEmail($_POST["email"]);
         if ($user2) {
@@ -62,6 +70,11 @@ class SecurityController extends AppController
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: $url/login");
     }
+
+    public function logout() {
+        AuthMiddleware::logout();
+    }
+
 
     private function validateUser(User $user)
     {

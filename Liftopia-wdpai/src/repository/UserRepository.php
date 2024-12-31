@@ -18,21 +18,33 @@ class UserRepository extends Repository
             return null;
         }
 
-        return new User(
+        $userObject = new User(
             $user['email'],
             $user['password'],
             $user['name'],
             $user['surname'],
             $user['date_of_birth']
         );
+
+        $userObject->setId($user['id']);
+        return $userObject;
     }
 
     public function save(User $user) : bool {
         try {
-            $statement = $this->database->connect()->prepare("
-            INSERT INTO public.users (email, password, name, surname, date_of_birth)
-            VALUES (:email, :password, :name, :surname, :date_of_birth)
-        ");
+            if ($user->getId() === null) {
+                $statement = $this->database->connect()->prepare("
+                INSERT INTO public.users (email, password, name, surname, date_of_birth)
+                VALUES (:email, :password, :name, :surname, :date_of_birth)
+            ");
+            } else {
+                $statement = $this->database->connect()->prepare("
+                UPDATE public.users
+                SET email = :email, password = :password, name = :name, surname = :surname, date_of_birth = :date_of_birth
+                WHERE id_user = :id
+            ");
+                $statement->bindValue(':id', $user->getId(), PDO::PARAM_INT);
+            }
 
             $statement->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
             $statement->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);

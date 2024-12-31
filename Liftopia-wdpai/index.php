@@ -12,4 +12,6 @@ Routing::get('register','DefaultController');
 Routing::post('register','SecurityController');
 Routing::post('login',"SecurityController");
 Routing::get('base',"DefaultController");
+Routing::post('logout',"SecurityController");
+Routing::get('profile',"ForumController");
 Routing::run($path);
