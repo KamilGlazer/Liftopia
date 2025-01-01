@@ -9,6 +9,5 @@ class Repository
     public function __construct(){
         $this->database = new Database();
 
-        //Zmienic na singleton
     }
 }

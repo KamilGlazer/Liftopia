@@ -25,18 +25,40 @@
                 <p class="quote">Every rep counts. Every register matters.</p>
                 <form action="/register" method="POST">
                     <div class="form__group">
+                        <label for="nickname" class="labelIcon"><i class="ri-creative-commons-by-line"></i></label>
+                        <input type="text" id="nickname" name="nickname" placeholder="Nickname" value="<?= isset($data['nickname']) ? htmlspecialchars($data['nickname']) : '' ?>" />
+                        <?php if (isset($messages)): ?>
+                            <?php if (in_array('Nickname must be at least 4 characters long.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> Nickname must be at least 4 characters long.</div>
+                            <?php elseif (in_array('User with this nickname already exists.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> User with this nickname already exists.</div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="form__group">
                         <label for="firstName" class="labelIcon"><i class="ri-user-line"></i></label>
                         <input type="text" id="firstName" name="name" placeholder="First Name" value="<?= isset($data['name']) ? htmlspecialchars($data['name']) : '' ?>" />
-                        <?php if (isset($messages) && in_array('First name must contain only letters.', $messages)): ?>
-                            <div class="error-message"><i class="ri-error-warning-line"></i> First name must contain only letters.</div>
+                        <?php if (isset($messages)): ?>
+                            <?php if (in_array('First name must contain only letters.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> First name must contain only letters.</div>
+                            <?php endif; ?>
+                            <?php if (in_array('First name must start with an uppercase letter.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> First name must start with an uppercase letter.</div>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
 
                     <div class="form__group">
                         <label for="lastName" class="labelIcon"><i class="ri-user-fill"></i></label>
                         <input type="text" id="lastName" name="surname" placeholder="Last Name" value="<?= isset($data['surname']) ? htmlspecialchars($data['surname']) : '' ?>" />
-                        <?php if (isset($messages) && in_array('Last name must contain only letters.', $messages)): ?>
-                            <div class="error-message"><i class="ri-error-warning-line"></i> Last name must contain only letters.</div>
+                        <?php if (isset($messages)): ?>
+                            <?php if (in_array('Last name must contain only letters.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> First name must contain only letters.</div>
+                            <?php endif; ?>
+                            <?php if (in_array('Last name must start with an uppercase letter.', $messages)): ?>
+                                <div class="error-message"><i class="ri-error-warning-line"></i> First name must start with an uppercase letter.</div>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
 

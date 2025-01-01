@@ -26,7 +26,11 @@ class SecurityController extends AppController
         }
 
         $_SESSION['user_id'] = $user->getId();
-        $_SESSION['user_email'] = $user->getEmail();
+        $_SESSION['user_email']= $user->getEmail();
+        $_SESSION['name']=$user->getName();
+        $_SESSION['surname']=$user->getSurname();
+        $_SESSION['nickname']=$user->getNickname();
+        $_SESSION['avatarPath']=$user->getAvatarPath();
 
 
         $url = "http://$_SERVER[HTTP_HOST]";
@@ -36,19 +40,25 @@ class SecurityController extends AppController
 
     public function register()
     {
+        $emailExists = false;
+        $nicknameExists = false;
         $userRepository = new UserRepository();
+        $plainPassword = $_POST["password"];
         $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        $user = new User($_POST["email"],$hashedPassword , $_POST["name"], $_POST["surname"], $_POST["dateOfBirth"]);
+        $user = new User($_POST["email"], $hashedPassword, $_POST["name"], $_POST["surname"], $_POST["dateOfBirth"],$_POST["nickname"]);
 
         $user2 = $userRepository->getUserByEmail($_POST["email"]);
+        $user3 = $userRepository->getUserByNickname($_POST["nickname"]);
+
         if ($user2) {
-            return $this->render('register', [
-                'messages' => ['User with this email already exists.'],
-                'data' => $_POST
-            ]);
+            $emailExists = true;
         }
 
-        $messages = $this->validateUser($user);
+        if($user3){
+            $nicknameExists = true;
+        }
+        
+        $messages = $this->validateUser($user,$plainPassword,$emailExists,$nicknameExists);
 
         if (!empty($messages)) {
             return $this->render('register', [
@@ -66,7 +76,6 @@ class SecurityController extends AppController
 
         session_start();
         $_SESSION['registration_success'] = 'Registration successful! Please log in.';
-
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: $url/login");
     }
@@ -76,24 +85,36 @@ class SecurityController extends AppController
     }
 
 
-    private function validateUser(User $user)
+    private function validateUser(User $user, $plainPassword,$emailExists,$nicknameExists)
     {
         $messages = [];
 
-        if (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
+        if($emailExists){
+            $messages[] = 'User with this email already exists.';
+        } elseif (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $messages[] = "Invalid email address.";
         }
 
-        if (strlen($user->getPassword()) < 5) {
+        if($nicknameExists){
+            $messages[] = 'User with this nickname already exists.';
+        }elseif(strlen($user->getNickname()) < 3){
+            $messages[] = "Nickname must be at least 4 characters long.";
+        }
+
+        if (strlen($plainPassword) < 5) {
             $messages[] = "Password must be at least 5 characters long.";
         }
 
         if (!preg_match('/^[A-Za-z]+$/', $user->getName())) {
             $messages[] = "First name must contain only letters.";
+        } elseif (!ctype_upper($user->getName()[0])) {
+            $messages[] = "First name must start with an uppercase letter.";
         }
 
         if (!preg_match('/^[A-Za-z]+$/', $user->getSurname())) {
             $messages[] = "Last name must contain only letters.";
+        } elseif (!ctype_upper($user->getSurname()[0])) {
+            $messages[] = "Last name must start with an uppercase letter.";
         }
 
         if (!$this->isAtLeast16($user->getDateOfBirth())) {

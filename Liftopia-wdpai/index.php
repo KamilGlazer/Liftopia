@@ -13,5 +13,6 @@ Routing::post('register','SecurityController');
 Routing::post('login',"SecurityController");
 Routing::get('base',"DefaultController");
 Routing::post('logout',"SecurityController");
-Routing::get('profile',"ForumController");
+Routing::get('profile',"ProfileController");
+Routing::post('update',"ProfileController");
 Routing::run($path);

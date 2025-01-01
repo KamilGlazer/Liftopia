@@ -4,6 +4,7 @@ const passwordInput = form.querySelector('input[name="password"]');
 const firstNameInput = form.querySelector('input[name="name"]');
 const lastNameInput = form.querySelector('input[name="surname"]');
 const dateOfBirthInput = form.querySelector('input[name="dateOfBirth"]');
+const nickNameInput = form.querySelector('input[name="nickname"]');
 
 function isEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
@@ -15,6 +16,10 @@ function isPassword(password) {
 
 function isValidName(name) {
     return /^[A-Za-z]+$/.test(name) && name.length > 0;
+}
+
+function isValidNickname(nickname) {
+    return /^[A-Za-z]+$/.test(nickname) && nickname.length > 0;
 }
 
 function isAtLeast16(dateOfBirth) {
@@ -61,4 +66,8 @@ lastNameInput.addEventListener('input', function () {
 
 dateOfBirthInput.addEventListener('input', function () {
     markValidation(dateOfBirthInput, isAtLeast16(dateOfBirthInput.value));
+});
+
+dateOfBirthInput.addEventListener('input', function () {
+    markValidation(nickNameInput, isValidNickname(nickNameInput.value));
 });

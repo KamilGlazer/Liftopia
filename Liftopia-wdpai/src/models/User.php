@@ -8,14 +8,28 @@ class User{
     private $name;
     private $surname;
     private $dateOfBirth;
+    private $nickname;
+    private $avatarPath;
 
-    public function __construct(string $email,string  $password, string $name, string $surname,$dateOfBirth)
+    public function __construct(string $email,string  $password, string $name, string $surname,$dateOfBirth, string $nickname)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
         $this->dateOfBirth = $dateOfBirth;
+        $this->nickname = $nickname;
+    }
+
+    public function getAvatarPath()
+    {
+        return $this->avatarPath;
+    }
+
+
+    public function setAvatarPath($avatarPath): void
+    {
+        $this->avatarPath = $avatarPath;
     }
 
 
@@ -27,6 +41,18 @@ class User{
     {
         $this->dateOfBirth = $dateOfBirth;
     }
+
+    public function getNickname(): string
+    {
+        return $this->nickname;
+    }
+
+    public function setNickname(string $nickname): void
+    {
+        $this->nickname = $nickname;
+    }
+
+
 
 
     public function getEmail(): string
