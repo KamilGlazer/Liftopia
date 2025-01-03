@@ -165,11 +165,13 @@ section.section__container {
     transform: scale(1.02);
 }
 
-.card h4 {
-    font-weight: 600;
-    color: var(--text-dark);
-}
 
 .card p {
     color: var(--text-light);
+}
+
+.card a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-dark);
 }

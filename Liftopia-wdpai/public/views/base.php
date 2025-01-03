@@ -31,30 +31,17 @@
 
     <section class="section__container">
         <div class="cards">
-            <div class="card">
-                <h4><i class="ri-arrow-up-fill"></i> Strength Training Techniques</h4>
-                <p>Share tips on effective strength training exercises, proper form, and muscle-building strategies.</p>
-            </div>
-            <div class="card">
-                <h4><i class="ri-store-2-line"></i> Nutrition for Fitness Goals</h4>
-                <p>Discuss how to fuel your workouts with the right diet, supplements, and meal planning.</p>
-            </div>
-            <div class="card">
-                <h4><i class="ri-heart-pulse-line"></i> Cardio Workouts for Endurance</h4>
-                <p>Explore various cardio routines to improve stamina, heart health, and overall endurance.</p>
-            </div>
-            <div class="card">
-                <h4><i class="ri-shuffle-fill"></i> Flexibility and Mobility Training</h4>
-                <p>Talk about stretching routines, yoga, and exercises that improve flexibility and prevent injury.</p>
-            </div>
-            <div class="card">
-                <h4><i class="ri-shake-hands-line"></i> Martial Arts Training</h4>
-                <p>Discuss martial arts techniques, training methods, and how they contribute to fitness and self-defense.</p>
-            </div>
-            <div class="card">
-                <h4><i class="ri-brain-line"></i> Fitness Motivation and Mindset</h4>
-                <p>Exchange ideas on staying motivated, overcoming plateaus, and keeping a positive fitness mindset.</p>
-            </div>
+            <?php foreach ($sections as $section): ?>
+                <div class="card">
+                    <h4>
+                        <i class="<?= htmlspecialchars($section['icon_class']) ?>"></i>
+                        <a href="/section/<?= htmlspecialchars($section['id']) ?>">
+                            <?= htmlspecialchars($section['name']) ?>
+                        </a>
+                    </h4>
+                    <p><?= htmlspecialchars($section['description']) ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
 
     </section>

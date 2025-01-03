@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../security/AuthMiddleware.php';
+require_once __DIR__.'/../repository/SectionRepository.php';
 
 class DefaultController extends AppController{
     
@@ -25,8 +26,13 @@ class DefaultController extends AppController{
         $this->render('register');
     }
 
-    public function base(){
+    public function base()
+    {
         AuthMiddleware::checkLogin();
-        $this->render('base');
+
+        $sectionRepository = new SectionRepository();
+        $sections = $sectionRepository->getSections();
+
+        $this->render('base', ['sections' => $sections]);
     }
 }

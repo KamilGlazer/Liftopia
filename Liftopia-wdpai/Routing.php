@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/ProfileController.php';
+require_once 'src/controllers/SectionController.php';
 
 class Routing {
     public static $routes = ['GET' => [], 'POST' => []];
@@ -17,17 +18,23 @@ class Routing {
 
     public static function run($url) {
         $method = $_SERVER['REQUEST_METHOD'];
-        $action = explode("/",$url)[0];
 
-        if(!array_key_exists($action,self::$routes[$method])) {
-            die("Wrong url!");
+        foreach (self::$routes[$method] as $route => $controller) {
+            $route = preg_replace('/\//', '\\/', $route);
+            $route = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
+            $route = '/^' . $route . '$/';
+
+            if (preg_match($route, $url, $params)) {
+                array_shift($params);
+
+                $object = new $controller;
+                $action = explode("/", $url)[0] ?: 'index';
+
+                call_user_func_array([$object, $action], $params);
+                return;
+            }
         }
 
-        $controller = self::$routes[$method][$action];
-        $object = new $controller;
-
-        $action = $action ?: 'index';
-
-        $object->$action();
+        die("Wrong url!");
     }
 }

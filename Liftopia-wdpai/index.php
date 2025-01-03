@@ -15,4 +15,6 @@ Routing::get('base',"DefaultController");
 Routing::post('logout',"SecurityController");
 Routing::get('profile',"ProfileController");
 Routing::post('update',"ProfileController");
+Routing::get('section/{id}',"SectionController");
+Routing::post('search',"SectionController");
 Routing::run($path);
