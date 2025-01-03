@@ -35,9 +35,17 @@ class SectionController extends AppController
             header('Content-type: application/json');
             http_response_code(200);
 
-            $topics = $topicRepository->getTopicByTitle($decoded['search']);
+            $topics = $topicRepository->getTopicByTitle($decoded['search'],$decoded['sectionId']);
             echo json_encode($topics);
         }
 
+    }
+
+    public function addTopic($id) {
+        AuthMiddleware::checkLogin();
+
+        $topicRepository = new TopicRepository();
+
+        $this->render('addTopic');
     }
 }

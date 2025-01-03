@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum Section</title>
     <link rel="stylesheet" href="/public/css/section.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <?php
     usort($topics, function ($a, $b) {
         return $b['created_at'] - $a['created_at'];
@@ -24,7 +26,7 @@
         <table class="topics-table">
             <thead>
             <tr>
-                <th>Topic</th>
+                <th class="title">Topic</th>
                 <th>Posts</th>
                 <th>Author</th>
             </tr>
@@ -32,7 +34,7 @@
             <tbody>
                 <?php foreach ($topics as $topic): ?>
                     <tr>
-                        <td>
+                        <td class="title">
                             <a href="/topic/<?= htmlspecialchars($topic['id']) ?>">
                                 <?= htmlspecialchars($topic['title']) ?>
                             </a>
@@ -49,9 +51,15 @@
             </tbody>
         </table>
 
-        <div class="button-container">
-            <button id="add-topic-button" class="add-topic-button">Add Topic</button>
-        </div>
+    <form id="create-topic-form" class="create-topic-form" action="/create-topic" method="POST" style="display:none;">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="content" placeholder="Write your content..." rows="5" required></textarea>
+        <button type="submit">CREATE</button>
+    </form>
+
+    <div class="button-container">
+        <button id="add-topic-button" class="add-topic-button"><i class="ri-file-add-line"></i></button>
+    </div>
     </div>
     <script src="/public/script/search.js"></script>
     </body>

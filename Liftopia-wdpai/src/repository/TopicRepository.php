@@ -13,15 +13,16 @@ class TopicRepository extends Repository
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getTopicByTitle($search)
+    public function getTopicByTitle($search, $sectionId)
     {
         $sql = "SELECT t.id, t.title, t.posts, u.nickname AS author_name, t.created_at 
             FROM public.topics t
             LEFT JOIN public.users u ON t.created_by = u.id
-            WHERE t.title ILIKE :search";
+            WHERE t.title ILIKE :search and t.section_id = :section_id";
 
         $statement = $this->database->connect()->prepare($sql);
         $statement->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+        $statement->bindValue(':section_id', $sectionId, PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);

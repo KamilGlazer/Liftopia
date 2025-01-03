@@ -24,17 +24,19 @@ class Routing {
             $route = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
             $route = '/^' . $route . '$/';
 
+
             if (preg_match($route, $url, $params)) {
                 array_shift($params);
 
                 $object = new $controller;
+
                 $action = explode("/", $url)[0] ?: 'index';
 
                 call_user_func_array([$object, $action], $params);
+
                 return;
             }
         }
-
-        die("Wrong url!");
+        die("Wrong URL!");
     }
 }

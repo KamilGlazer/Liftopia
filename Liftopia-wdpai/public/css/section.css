@@ -43,6 +43,7 @@ h1, h2 {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed;
 }
 
 
@@ -67,11 +68,16 @@ h1, h2 {
     transform: scale(1.05);
 }
 
-
 .create-topic-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .create-topic-form input,
@@ -79,20 +85,33 @@ h1, h2 {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 16px;
+}
+
+.create-topic-form textarea {
+    resize: none;
+}
+
+.create-topic-form input {
+    margin-bottom: 0.7rem;
 }
 
 .create-topic-form button {
     padding: 10px 15px;
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
+    font-weight: 520;
     border: none;
-    border-radius: 4px;
+    border-radius: 1rem;
     cursor: pointer;
 }
 
 .create-topic-form button:hover {
-    background-color: #2980b9;
+    background-color: var(--primary-color-dark);
+}
+
+.create-topic-form {
+    display: none;
 }
 
 .logo {
@@ -126,6 +145,11 @@ h1, h2 {
     padding: 0.5rem;
     border: 1px solid #ddd;
     text-align: left;
+}
+
+.topics-table th:nth-child(1),
+.topics-table td:nth-child(1) {
+    width: 600px;
 }
 
 .topics-table td .author_date {
@@ -169,8 +193,7 @@ h1, h2 {
     border-radius: 1rem;
 }
 
-/* Styl dla kontenera przycisku */
-.button-container {
+.button-container  {
     display: flex;
     justify-content: right;
     text-align: center;
@@ -180,8 +203,8 @@ h1, h2 {
 
 
 .add-topic-button {
-    padding: 0.5rem 1rem;
-    font-size: 16px;
+    padding: 0.4rem 0.9rem;
+    font-size: 1.3rem;
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -197,4 +220,3 @@ h1, h2 {
     outline: none;
     border: 1px solid black;
 }
-

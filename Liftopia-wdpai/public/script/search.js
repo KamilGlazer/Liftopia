@@ -5,7 +5,14 @@ search.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
 
-        const data = { search: this.value };
+        const path = window.location.pathname;
+        const sectionId = path.split("/")[2];
+
+
+        const data = {
+            search: this.value,
+            sectionId : sectionId
+        };
 
         fetch("/search", {
             method: "POST",
@@ -65,3 +72,22 @@ function createTopic(topic) {
 
     topicsContainer.appendChild(clone);
 }
+
+
+document.getElementById('add-topic-button').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var form = document.getElementById('create-topic-form');
+    var icon = this.querySelector('i');
+
+
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+
+    if (form.style.display === 'block') {
+        icon.classList.remove('ri-file-add-line');
+        icon.classList.add('ri-file-reduce-line');
+    } else {
+        icon.classList.remove('ri-file-reduce-line');
+        icon.classList.add('ri-file-add-line');
+    }
+});
