@@ -81,12 +81,12 @@ document.getElementById('add-topic-button').addEventListener('click', function(e
     var icon = this.querySelector('i');
 
 
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
-
-    if (form.style.display === 'block') {
+    if (form.style.display === 'none' || form.style.display === '') {
+        form.style.display = 'block';
         icon.classList.remove('ri-file-add-line');
         icon.classList.add('ri-file-reduce-line');
     } else {
+        form.style.display = 'none';
         icon.classList.remove('ri-file-reduce-line');
         icon.classList.add('ri-file-add-line');
     }

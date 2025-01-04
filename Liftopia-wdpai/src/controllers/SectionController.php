@@ -41,11 +41,55 @@ class SectionController extends AppController
 
     }
 
-    public function addTopic($id) {
+    public function createTopic($id){
         AuthMiddleware::checkLogin();
-
         $topicRepository = new TopicRepository();
+        $userRepository = new UserRepository();
 
-        $this->render('addTopic');
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+
+
+        $messages = $this->validateTopic($title,$content,$topicRepository,$id);
+        if (!empty($messages)) {
+            $topics = $topicRepository->getTopicsBySectionId($id);
+            foreach ($topics as &$topic) {
+                $user = $userRepository->getUserById($topic['created_by']);
+                $topic['author_name'] = $user->getNickname();
+            }
+            return $this->render('section', [
+                'topics' => $topics,
+                'messages' => $messages,
+                'sectionId' => $id,
+                'title' => $title,
+                'content' => $content
+            ]);
+        }
+
+        $userId = $_SESSION['user_id'];
+        $topicRepository->addTopic($id,$title,$content,$userId);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: $url/section/$id");
+        exit();
+    }
+
+
+    private function validateTopic($title,$content,$topicRepository,$sectionId): array
+    {
+        $messages = [];
+        $topic = $topicRepository->getTopicByTitle2($title,$sectionId);
+
+        if(!empty($topic)) {
+            $messages[] = "That topic already exists.";
+        } elseif(strlen($title) < 4){
+            $messages[] = 'Title must be at least 4 characters long.';
+        }
+
+        if(strlen($content) < 4){
+            $messages[] = 'Content must be at least 10 characters long.';
+        }
+
+        return $messages;
     }
 }

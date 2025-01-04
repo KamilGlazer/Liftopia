@@ -43,7 +43,7 @@
                         <td>
                             <div class="author_date">
                                 <span class="author-name"><?= htmlspecialchars($topic['author_name']) ?></span>
-                                <span class="created-at"><?= htmlspecialchars($topic['created_at']) ?></span>
+                                <span class="created-at"><?= htmlspecialchars(date('Y-m-d H:i:s', strtotime($topic['created_at']))) ?></span>
                             </div>
                         </td>
                     </tr>
@@ -51,15 +51,34 @@
             </tbody>
         </table>
 
-    <form id="create-topic-form" class="create-topic-form" action="/create-topic" method="POST" style="display:none;">
-        <input type="text" name="title" placeholder="Title" required>
-        <textarea name="content" placeholder="Write your content..." rows="5" required></textarea>
+
+
+    <form id="create-topic-form" class="create-topic-form" action="/createTopic/<?php echo $sectionId; ?>" method="POST" style="display: <?php echo !empty($messages) ? 'block' : 'none'; ?>;">
+        <input type="text" name="title" placeholder="Title" value="<?php echo htmlspecialchars($title); ?>" required>
+        <textarea name="content" placeholder="Write your content..." rows="5" required><?php echo htmlspecialchars($content); ?></textarea>
+        <?php if (!empty($messages)): ?>
+            <div class="messages">
+                <ul>
+                    <?php foreach ($messages as $message): ?>
+                        <li><i class="ri-error-warning-line"></i> <?php echo htmlspecialchars($message); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
         <button type="submit">CREATE</button>
     </form>
 
-    <div class="button-container">
-        <button id="add-topic-button" class="add-topic-button"><i class="ri-file-add-line"></i></button>
-    </div>
+    <?php if (!empty($messages)): ?>
+        <div class="button-container">
+            <button id="add-topic-button" class="add-topic-button"><i class="ri-file-reduce-line"></i></button>
+        </div>
+    <?php else: ?>
+        <div class="button-container">
+            <button id="add-topic-button" class="add-topic-button"><i class="ri-file-add-line"></i></button>
+        </div>
+    <?php endif; ?>
+
+
     </div>
     <script src="/public/script/search.js"></script>
     </body>

@@ -92,6 +92,15 @@ h1, h2 {
     resize: none;
 }
 
+.create-topic-form textarea:focus, .create-topic-form input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.create-topic-form textarea::placeholder, .create-topic-form input::placeholder {
+    font-family: 'Poppins', sans-serif;
+}
+
 .create-topic-form input {
     margin-bottom: 0.7rem;
 }
@@ -104,6 +113,7 @@ h1, h2 {
     border: none;
     border-radius: 1rem;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
 .create-topic-form button:hover {
@@ -193,6 +203,11 @@ h1, h2 {
     border-radius: 1rem;
 }
 
+.search-bar::placeholder {
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .button-container  {
     display: flex;
     justify-content: right;
@@ -203,20 +218,32 @@ h1, h2 {
 
 
 .add-topic-button {
-    padding: 0.4rem 0.9rem;
+    padding: 0.3rem 0.7rem;
     font-size: 1.3rem;
     background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 1rem;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .add-topic-button:hover {
     background-color: var(--primary-color-dark);
+    transform: scale(1.10);
 }
 
 .search-bar:focus {
     outline: none;
     border: 1px solid black;
+}
+
+form .messages {
+    color: red;
+    font-size: 0.7rem;
+}
+
+form .messages ul {
+    list-style-type: none;
+    margin-bottom: 0.5rem;
 }

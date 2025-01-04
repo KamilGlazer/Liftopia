@@ -17,5 +17,5 @@ Routing::get('profile',"ProfileController");
 Routing::post('update',"ProfileController");
 Routing::get('section/{id}',"SectionController");
 Routing::post('search',"SectionController");
-Routing::get('section/{id}/addTopic',"SectionController");
+Routing::post('createTopic/{id}',"SectionController");
 Routing::run($path);
