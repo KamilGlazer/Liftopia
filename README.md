@@ -22,7 +22,12 @@
 <p>Set up the environment for the app by using Docker. Start your Docker Desktop and make sure you are in the /Liftopia-wdpai directory, then enter the following command in your command line.</p>
 <pre><code>docker-compose up --build</code></pre>
 
-<h4>Database credentials</h4>
+<h4>Use the following credentials to log in to the application:</h4>
+<pre><code>email: test@test.pl
+password: test123
+</code></pre>
+
+<h4>Database credentials:</h4>
 <pre><code>POSTGRES_USER: postgres
 POSTGRES_PASSWORD: mysecretpassword
 </code></pre>
