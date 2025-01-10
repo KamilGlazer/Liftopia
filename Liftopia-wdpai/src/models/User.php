@@ -19,6 +19,7 @@ class User{
         $this->surname = $surname;
         $this->dateOfBirth = $dateOfBirth;
         $this->nickname = $nickname;
+        $this->avatarPath = '/public/assets/man.png';
     }
 
 

@@ -219,3 +219,51 @@ body {
 .forum form button:hover {
     background-color: var(--primary-color-dark);
 }
+
+
+@media (max-width: 480px) {
+    * {
+        --max-width: 468px;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+
+    .forum form button {
+        width: 20vw;
+    }
+
+    .forum form textarea {
+        width: 70vw;
+    }
+
+    .forum form {
+        margin: 1rem 0 0;
+    }
+
+    .form_container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .form_container .information_label {
+        width: 70vw;
+        font-size: 0.75rem;
+        margin: 1rem 0 0;
+    }
+
+    .container .path {
+        font-size: 1rem;
+    }
+
+    .user-info {
+        font-size: 0.75rem;
+    }
+
+    .user-info .timestamp{
+        font-size: 0.6rem;
+        text-align: center;
+    }
+
+}

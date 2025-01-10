@@ -155,6 +155,9 @@ h1, h2 {
     padding: 0.5rem;
     border: 1px solid #ddd;
     text-align: left;
+    word-wrap: break-word;
+    overflow: auto;
+    max-width: 100%;
 }
 
 .topics-table th:nth-child(1),
@@ -176,6 +179,7 @@ h1, h2 {
 .topics-table td {
     padding: 1rem;
 }
+
 
 .topics-table td i {
     font-size: 0.8rem;
@@ -249,24 +253,37 @@ form .messages ul {
 }
 
 
-@media (max-width: 768px) {
-    * {
-        --max-width: 768px;
-    }
-
-    .search-bar {
-        width: 40vw;
-    }
-
-}
 
 @media (max-width: 480px) {
     * {
         --max-width: 468px;
     }
 
+    body {
+        font-size: 1rem;
+    }
+
     .search-bar {
         width: 40vw;
+    }
+
+
+    .topics-table th:nth-child(1),
+    .topics-table td:nth-child(1) {
+        padding: 0.5rem;
+        width: 30vw;
+        text-wrap: auto;
+    }
+
+    .topics-table th:nth-child(2),
+    .topics-table td:nth-child(2){
+        padding: 0;
+        width: 13vw;
+    }
+
+    .topics-table th:nth-child(3),
+    .topics-table td:nth-child(3){
+        width: 17vw;
     }
 
 }

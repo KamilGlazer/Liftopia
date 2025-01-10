@@ -10,8 +10,8 @@
     />
   <link rel="stylesheet" href="/public/css/login.css" />
     <style>
-        .messages { color: red; text-align: center; margin-bottom: 1rem; }
-        .login__container .success-message {color : green; margin-top: 1rem;}
+        .messages { color: red; text-align: center; margin-bottom: 0.5rem }
+        .login__container .success-message {color : green; }
     </style>
 </head>
 <body>

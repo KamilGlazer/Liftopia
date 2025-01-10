@@ -677,4 +677,44 @@ nav {
   
 }
 
+@media (max-width: 480px) {
+  * {
+    --max-width: 468px;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  .header__image {
+    display: none;
+  }
+
+  .header__content  {
+    text-align: center;
+  }
+
+  .header__content h4 , .header__content h1  {
+    font-size: 2rem;
+  }
+
+  .section__header span {
+    font-size: 2.5rem;
+  }
+
+  .section__header::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about__content .section_description {
+    text-align: center;
+  }
+
+  .footer__col p {
+    text-align: center;
+  }
+
+}
+
 
