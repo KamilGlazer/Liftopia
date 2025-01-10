@@ -39,4 +39,16 @@ POSTGRES_PASSWORD: mysecretpassword
 </div>
 
 <hr>
-<h2></h2>
+<h2>Usage</h2>
+Every user, even unlogged, has access to the following pages:
+
+- `/` - Home Page
+- `/login` - Login Page
+- `/register` - Registration Page
+
+Once a user registers, they are redirected to: `/login`.
+
+If the user logs in successfully, they gain access to:
+
+- `/sections` - View sections and topics
+- `/profile` - Profile page where users can change their email, nickname, and profile image
