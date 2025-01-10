@@ -21,6 +21,7 @@ class User{
         $this->nickname = $nickname;
     }
 
+
     public function getAvatarPath()
     {
         return $this->avatarPath;

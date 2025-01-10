@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --primary-color: #f92524;
+    --primary-color-dark: #e91a1a;
+    --secondary-color: #faf9fe;
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --max-width: 1300px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 1.3rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.logo p span{
+    color: var(--primary-color)
+}
+
+.logo img {
+    max-width: 70px;
+}
+
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.post-card {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    height: 100%;
+    height: auto;
+}
+
+.post-header {
+    display: flex;
+    flex: 1;
+}
+
+.user-info {
+    background-color: #f4f1f1;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.nickname {
+    font-weight: 550;
+    color: var(--text-dark);
+}
+
+.timestamp {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.post-content {
+    padding: 1rem;
+    width: 70%;
+    word-wrap: break-word;
+}
+
+.post-footer {
+    background-color: #f4f1f1;
+    height: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.path {
+    font-weight: 450;
+    font-size: 1.5rem;
+}
+
+.path a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.path a:hover {
+    text-decoration: underline;
+}
+
+
+.form_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form_container .information_label {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    height: auto;
+    width: 40vh;
+    border-radius: 8px;
+    text-wrap: auto;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    background-color: #f4f1f1;
+}
+
+.form_container .information_label p:first-child {
+    font-weight: 450;
+}
+
+
+.forum form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.forum form textarea {
+    padding: 1rem;
+    height: 20vh;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: none;
+    width: 30vw;
+}
+
+.forum form textarea:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.forum form textarea::placeholder {
+    font-family: "Poppins", sans-serif;
+}
+
+.forum form button {
+    font-family: "Poppins", sans-serif;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 5vw;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+}
+
+.forum form button:hover {
+    background-color: var(--primary-color-dark);
+}

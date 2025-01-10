@@ -35,7 +35,7 @@
                 <?php foreach ($topics as $topic): ?>
                     <tr>
                         <td class="title">
-                            <a href="/topic/<?= htmlspecialchars($topic['id']) ?>">
+                            <a href="/section/<?php echo $sectionId?>/topic/<?= htmlspecialchars($topic['id']) ?>">
                                 <?= htmlspecialchars($topic['title']) ?>
                             </a>
                         </td>

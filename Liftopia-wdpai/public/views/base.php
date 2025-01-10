@@ -11,23 +11,30 @@
     />
 </head>
 <body>
-    <div class="logo">
-        <a href="/"><img src="/public/assets/price-2.png" alt="logo"><p><span class="lift">Lift</span>opia</p></a>
-    </div>
-    <div class="user" onclick="toggleMenu()">
-        <i class="ri-user-line"></i>
-    </div>
+
+    <div class="navigation">
+
+        <div class="none"></div>
+
+        <div class="logo">
+            <a href="/"><img src="/public/assets/price-2.png" alt="logo"><p><span class="lift">Lift</span>opia</p></a>
+        </div>
+        <div class="user" onclick="toggleMenu()">
+            <i class="ri-user-line"></i>
+        </div>
 
 
-    <div class="user-menu" id="userMenu">
-        <ul>
-            <li><a href="/profile">Profile</a></li>
-            <li><form action="/logout" method="POST">
-                    <button type="submit"><i class="ri-logout-circle-line"></i> Logout</button>
-                </form>
-            </li>
-        </ul>
+        <div class="user-menu" id="userMenu">
+            <ul>
+                <li><a href="/profile">Profile</a></li>
+                <li><form action="/logout" method="POST">
+                        <button type="submit"><i class="ri-logout-circle-line"></i> Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     </div>
+
 
     <section class="section__container">
         <div class="cards">

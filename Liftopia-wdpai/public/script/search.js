@@ -65,7 +65,9 @@ function createTopic(topic) {
 
     const createdAt = clone.querySelector(".created-at");
     if (createdAt) {
-        createdAt.textContent = topic.created_at;
+        const date = new Date(topic.created_at);
+        const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+        createdAt.textContent = formattedDate;
     } else {
         console.error("Element 'created_at' nie został znaleziony.");
     }

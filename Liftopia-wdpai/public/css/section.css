@@ -247,3 +247,26 @@ form .messages ul {
     list-style-type: none;
     margin-bottom: 0.5rem;
 }
+
+
+@media (max-width: 768px) {
+    * {
+        --max-width: 768px;
+    }
+
+    .search-bar {
+        width: 40vw;
+    }
+
+}
+
+@media (max-width: 480px) {
+    * {
+        --max-width: 468px;
+    }
+
+    .search-bar {
+        width: 40vw;
+    }
+
+}

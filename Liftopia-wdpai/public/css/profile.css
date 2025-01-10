@@ -17,7 +17,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -29,8 +29,6 @@ body {
     width: 100%;
     max-width: 450px;
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .profile-container h1 {

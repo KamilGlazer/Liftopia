@@ -18,4 +18,13 @@ Routing::post('update',"ProfileController");
 Routing::get('section/{id}',"SectionController");
 Routing::post('search',"SectionController");
 Routing::post('createTopic/{id}',"SectionController");
-Routing::run($path);
+Routing::get('section/{id}/topic/{topicId}', 'TopicController');
+Routing::post('addPost/{id}',"TopicController");
+
+if (preg_match('/^section\/[0-9]+\/topic\/[0-9]+$/', $path)) {
+    Routing::run2($path);
+} else {
+    Routing::run($path);
+}
+
+

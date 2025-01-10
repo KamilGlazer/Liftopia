@@ -12,7 +12,6 @@
 </head>
 <body>
 <div class="profile-container">
-    <a href="/base"><i class="ri-arrow-left-circle-line"></a></i>
     <h1>
         <i class="ri-user-settings-line"></i>PROFILE
     </h1>

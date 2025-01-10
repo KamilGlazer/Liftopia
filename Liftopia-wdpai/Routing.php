@@ -4,6 +4,7 @@ require_once 'src/controllers/DefaultController.php';
 require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/ProfileController.php';
 require_once 'src/controllers/SectionController.php';
+require_once 'src/controllers/TopicController.php';
 
 class Routing {
     public static $routes = ['GET' => [], 'POST' => []];
@@ -31,6 +32,29 @@ class Routing {
                 $object = new $controller;
 
                 $action = explode("/", $url)[0] ?: 'index';
+
+                call_user_func_array([$object, $action], $params);
+
+                return;
+            }
+        }
+        die("Wrong URL!");
+    }
+
+    public static function run2($url) {
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        foreach (self::$routes[$method] as $route => $controller) {
+            $route = preg_replace('/\//', '\\/', $route);
+            $route = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $route);
+            $route = '/^' . $route . '$/';
+
+            if (preg_match($route, $url, $params)) {
+                array_shift($params);
+
+                $object = new $controller;
+
+                $action = count($params) > 1 ? 'viewTopic' : 'index';
 
                 call_user_func_array([$object, $action], $params);
 

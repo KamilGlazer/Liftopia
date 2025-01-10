@@ -9,7 +9,6 @@ class SectionController extends AppController
 {
     public function section($id) {
         AuthMiddleware::checkLogin();
-
         $topicRepository = new TopicRepository();
         $userRepository = new UserRepository();
         $topics = $topicRepository->getTopicsBySectionId($id);
@@ -86,7 +85,7 @@ class SectionController extends AppController
             $messages[] = 'Title must be at least 4 characters long.';
         }
 
-        if(strlen($content) < 4){
+        if(strlen($content) < 10){
             $messages[] = 'Content must be at least 10 characters long.';
         }
 
