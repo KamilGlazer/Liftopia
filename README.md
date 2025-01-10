@@ -8,13 +8,12 @@
 <hr>
 
 <div align="center">
-  <img src="Liftopia-wdpai/assets/img7.png">
-  <img src="Liftopia-wdpai/assets/img8.png">
+  <img src="Liftopia-wdpai/assets/img7.png" width="350">
+  <img src="Liftopia-wdpai/assets/img8.png" width="350">
   <img src="Liftopia-wdpai/assets/img1.png">
-  <img src="Liftopia-wdpai/assets/img2.png">
-  <img src="Liftopia-wdpai/assets/img5.png">
+  <img src="Liftopia-wdpai/assets/img2.png" width="350">
+  <img src="Liftopia-wdpai/assets/img5.png" width="350">
   <img src="Liftopia-wdpai/assets/img3.png">
-  <img src="Liftopia-wdpai/assets/img4.png">
 </div>
 
 <hr>
