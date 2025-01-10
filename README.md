@@ -35,6 +35,7 @@ POSTGRES_PASSWORD: mysecretpassword
     <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" style="margin-right: 10px;"> 
     <img src="https://img.icons8.com/officel/40/000000/php-logo.png" alt="PHP" style="margin-right: 10px;"> 
     <img src="https://img.icons8.com/color/48/000000/sql.png" alt="PostgreSQL" style="margin-right: 10px;">
+  <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" style="margin-right: 10px;">
 </div>
 
 <hr>
