@@ -5,12 +5,38 @@
   The main goal of Liftopia is to provide a space where individuals can find motivation and advice. 
   The application is offering a clean, user-friendly interface, easy navigation, and an engaging community experience. It includes features such as topic categorization, user profiles, and the ability to join discussions on specific fitness topics.
 </p>
+<hr>
 
 <div align="center">
+  <img src="Liftopia-wdpai/assets/img7.png">
+  <img src="Liftopia-wdpai/assets/img8.png">
   <img src="Liftopia-wdpai/assets/img1.png">
   <img src="Liftopia-wdpai/assets/img2.png">
   <img src="Liftopia-wdpai/assets/img5.png">
   <img src="Liftopia-wdpai/assets/img3.png">
   <img src="Liftopia-wdpai/assets/img4.png">
-
 </div>
+
+<hr>
+
+<h2>Instalation</h2>
+<p>Set up the environment for the app by using Docker. Start your Docker Desktop and make sure you are in the /Liftopia-wdpai directory, then enter the following command in your command line.</p>
+<pre><code>docker-compose up --build</code></pre>
+
+<h4>Database credentials</h4>
+<pre><code>POSTGRES_USER: postgres
+POSTGRES_PASSWORD: mysecretpassword
+</code></pre>
+
+<hr>
+<h2>Technologies</h2>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+    <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" style="margin-right: 10px;"> 
+    <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" style="margin-right: 10px;"> 
+    <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" style="margin-right: 10px;"> 
+    <img src="https://img.icons8.com/officel/40/000000/php-logo.png" alt="PHP" style="margin-right: 10px;"> 
+    <img src="https://img.icons8.com/color/48/000000/sql.png" alt="PostgreSQL" style="margin-right: 10px;">
+</div>
+
+<hr>
+<h2></h2>
